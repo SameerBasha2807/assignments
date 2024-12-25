@@ -1,0 +1,71 @@
+Difference:
+Euclidean Distance measures the straight-line distance between two points in a multidimensional space.
+Manhattan Distance measures the distance as the sum of absolute differences along each dimension, emphasizing axis-aligned differences.
+
+Effect on KNN Performance:
+Euclidean Distance: Works better when the features are continuous and the data is isotropic (spread evenly in all directions).
+Manhattan Distance: Performs well in high-dimensional spaces or when the data has features that are independent and not isotropic.
+Choice's Impact: The distance metric affects the definition of "nearest neighbors," which can influence classification or regression accuracy. In datasets with noisy or unscaled features, the choice of metric can lead to significant performance differences.
+
+Q2: 
+k in KNN
+Methods to Determine Optimal 𝑘
+k:Cross-Validation: Evaluate KNN's performance using different values of 𝑘 and select the one that minimizes validation error.
+Grid Search: Use grid search with cross-validation to systematically test a range of k values.
+Elbow Method: Plot accuracy or error versus 𝑘 and identify the "elbow point" where increasing 
+k yields diminishing returns.
+Domain Knowledge: Use prior knowledge about the dataset to narrow the range of possible k values.
+Impact of k: Small 𝑘
+k: Captures local patterns but risks overfitting.
+Large 𝑘
+k: Provides smoother decision boundaries but risks underfitting.
+
+
+Q3: Impact of Metric Choice:
+The distance metric determines how neighbors are identified, directly influencing the prediction.
+Euclidean Distance: Sensitive to outliers and scales. Performs well when features have similar units or are standardized.
+Manhattan Distance: Less sensitive to outliers, performs better for high-dimensional data or when features vary in scale.
+Choosing a Metric:
+Euclidean Distance: Use when data is continuous and well-distributed.
+Manhattan Distance: Use when features are categorical, high-dimensional, or have different units.
+Others (e.g., Minkowski, Cosine): Consider depending on specific data characteristics or application.
+
+
+Q4: Common Hyperparameters in KNN and Tuning Techniques
+Hyperparameters:k (Number of Neighbors): Determines the smoothness of decision boundaries.
+Distance Metric: Affects how similarity is calculated.
+Weights: Uniform (equal weights) or distance-based (closer points have higher weights).
+Algorithm: Choice of nearest neighbor search algorithm (e.g., brute-force, KD-tree).
+Effect on Performance:
+k: Impacts bias-variance tradeoff.
+Distance Metric: Defines "closeness," influencing classification or regression accuracy.
+Weights: Adjusts the influence of neighbors, which can improve performance in heterogeneous datasets.
+Algorithm: Affects computational efficiency.
+Tuning Techniques:
+Grid Search or Random Search.
+Cross-validation.
+Feature scaling and normalization to complement the chosen metric.
+
+
+Q5: 
+Performance Impact:
+Large Training Set: Improves accuracy by providing more neighbors for better predictions but increases computational cost.
+Small Training Set: Reduces computational cost but may lead to poor generalization.
+Optimization Techniques:
+Dimensionality Reduction: Use PCA or feature selection to reduce data complexity.
+Sampling: Use stratified sampling to ensure representative training subsets.
+Approximate Nearest Neighbors (ANN): Use algorithms like Locality Sensitive Hashing (LSH) to reduce computational overhead.
+
+Q6: 
+Drawbacks:
+High Computational Cost: Distance calculations for large datasets are time-consuming.
+Sensitivity to Feature Scaling: Features with larger ranges dominate.
+Curse of Dimensionality: Performance degrades with high-dimensional data.
+Imbalanced Data: Bias toward majority class in classification tasks.
+Storage Requirements: Requires storing the entire training set.
+Solutions:
+Efficient Algorithms: Use KD-trees, Ball trees, or approximate nearest neighbors.
+Feature Scaling: Normalize or standardize features.
+Dimensionality Reduction: Apply techniques like PCA to reduce dimensionality.
+Weighting Scheme: Use distance-based weights to address imbalances.
+Data Preprocessing: Handle missing values and remove outliers to improve robustness.

@@ -1,0 +1,110 @@
+
+Q1: 
+
+For a square matrix 
+A, if 𝐴𝑣=𝜆𝑣
+Av=λv, where 𝑣
+v is a non-zero vector, then:
+v is an eigenvector of 𝐴𝜆
+λ is the corresponding eigenvalue.
+Relation to Eigen-Decomposition:
+Eigen-decomposition expresses 
+𝐴 as 𝐴=𝑉Λ𝑉−1
+A=VΛV −1, where:
+V is the matrix of eigenvectors.
+Λ is the diagonal matrix of eigenvalues.
+
+
+Q2: What Is Eigen-Decomposition and Its Significance in Linear Algebra?
+Eigen-Decomposition:
+The process of decomposing a square matrix 
+A into 𝐴=𝑉Λ𝑉−1
+A=VΛV−1
+, where 𝑉
+V contains eigenvectors, and 
+Λ contains eigenvalues.
+Significance:
+Simplifies matrix operations like raising 
+𝐴
+A to a power.
+Provides insights into the matrix's structure, such as rotation, scaling, and shear transformations.
+Forms the foundation for techniques like PCA, spectral clustering, and linear transformations.
+
+Q3: Conditions for a Matrix to Be Diagonalizable Using Eigen-Decomposition
+Condition:
+A square matrix 
+𝐴
+A is diagonalizable if it has 
+𝑛
+n linearly independent eigenvectors, where 
+𝑛
+n is the size of the matrix.
+
+Proof Outline:
+
+If 
+𝐴
+A has 
+𝑛
+n distinct eigenvalues, it is guaranteed to have 
+𝑛
+n linearly independent eigenvectors.
+These eigenvectors form the columns of 
+𝑉
+V, enabling diagonalization.
+If 
+𝐴
+A does not have 
+𝑛
+n distinct eigenvalues, it may or may not be diagonalizable, depending on the eigenvectors' linear independence.
+
+
+Q4: Significance of the Spectral Theorem in Eigen-Decomposition
+Spectral Theorem:
+A symmetric matrix 
+𝐴
+A is diagonalizable by an orthogonal matrix 
+𝑄->𝐴=𝑄Λ𝑄𝑇A=QΛQT,where 𝑄𝑇=𝑄−1 QT=Q−1.
+
+Significance:
+
+Ensures that real symmetric matrices have real eigenvalues and orthogonal eigenvectors.
+Simplifies decomposition for applications like PCA.  
+
+
+Q5: Finding Eigenvalues and Their Representation
+Finding Eigenvalues:
+Solve the characteristic equation 
+det
+(𝐴−𝜆𝐼)=0   
+det(A−λI)=0.
+
+Q6: 
+Eigenvectors define directions in the vector space that remain unchanged under the transformation A, while eigenvalues scale these directions. Together, they encapsulate the matrix's geometric and structural properties.
+
+
+Q7:
+Eigenvectors: Represent directions along which the transformation stretches or compresses the space.
+Eigenvalues: Indicate the amount of stretching (if λ>1) or compression (if
+λ<1) along the eigenvector direction.
+Example: For a 2D rotation matrix, eigenvectors align with axes of rotation, and eigenvalues define scaling in those directions.
+
+
+Q8: 
+Principal Component Analysis (PCA): Reducing dimensionality by projecting data onto principal components.
+Vibrations Analysis: Analyzing natural frequencies and modes of mechanical systems.
+Quantum Mechanics: Diagonalizing Hamiltonians to find energy states.
+
+
+Q9:
+A matrix's eigenvalues are unique (up to multiplicity), but eigenvectors may vary due to scalar multiplication.
+However, for a given eigenvalue, any scalar multiple of an eigenvector is also an eigenvector.
+
+
+Q10: 
+Principal Component Analysis (PCA):
+Identifies directions of maximum variance, used for dimensionality reduction.
+Spectral Clustering:
+Utilizes eigenvectors of similarity matrices to find clusters in data.
+Graph Analysis:
+Eigenvalues of graph Laplacians reveal structural properties like connectivity and community detection.

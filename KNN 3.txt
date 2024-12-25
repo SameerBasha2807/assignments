@@ -1,0 +1,80 @@
+Q1:
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+iris = load_iris()
+X, y = iris.data, iris.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+print(f"Accuracy: {accuracy_score(y_test, y_pred):.2f}")
+
+
+Q2:
+from sklearn.datasets import load_boston
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.metrics import mean_squared_error
+boston = load_boston()
+X, y = boston.data, boston.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+knn = KNeighborsRegressor(n_neighbors=3)
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+print(f"Mean Squared Error: {mean_squared_error(y_test, y_pred):.2f}")
+
+
+Q3: 
+from sklearn.model_selection import cross_val_score
+import numpy as np
+k_range = range(1, 31)
+mean_scores = []
+for k in k_range:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    scores = cross_val_score(knn, X, y, cv=5, scoring='accuracy')
+    mean_scores.append(scores.mean())
+optimal_k = k_range[np.argmax(mean_scores)]
+print(f"Optimal value of K: {optimal_k}")
+
+
+Q4:
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)
+
+# Initialize and train KNN regressor
+knn = KNeighborsRegressor(n_neighbors=3)
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+print(f"Mean Squared Error with Scaling: {mean_squared_error(y_test, y_pred):.2f}")
+
+
+Q5:
+knn_weighted = KNeighborsClassifier(n_neighbors=3, weights='distance')
+knn_weighted.fit(X_train, y_train)
+y_pred_weighted = knn_weighted.predict(X_test)
+print(f"Accuracy with Weighted Voting: {accuracy_score(y_test, y_pred_weighted):.2f}")
+
+
+Q6:
+def standardize_features(X):
+    from sklearn.preprocessing import StandardScaler
+    scaler = StandardScaler()
+    return scaler.fit_transform(X)
+X_standardized = standardize_features(X)
+
+
+Q7: 
+import numpy as np
+def euclidean_distance(point1, point2):
+    return np.sqrt(np.sum((np.array(point1) - np.array(point2)) ** 2))
+print(euclidean_distance([1, 2], [4, 6]))  
+
+
+Q8:
+def manhattan_distance(point1, point2):
+    return np.sum(np.abs(np.array(point1) - np.array(point2)))
+print(manhattan_distance([1, 2], [4, 6]))  

@@ -1,0 +1,84 @@
+Q1: 
+Projection:
+A projection is the mapping of data points from their original space to a lower-dimensional space. In PCA, data points are projected onto new axes called principal components (PCs). These PCs are linear combinations of the original features.
+Usage in PCA:
+PCA projects data onto the principal components to maximize variance along these new axes while reducing dimensionality. The first principal component captures the highest variance, the second captures the next highest variance orthogonal to the first, and so on.
+
+
+Q2:
+Optimization Problem:
+PCA seeks to find the principal components that maximize the variance of the projected data. Mathematically, this involves solving an eigenvalue decomposition or singular value decomposition (SVD) of the covariance matrix of the data.
+Objective: Maximize 
+Var(𝑍)
+Var(Z), where 𝑍=𝑋𝑊
+Z=XW
+X is the data matrix, and 
+W is the matrix of principal components.
+Goal:
+PCA aims to reduce dimensionality while retaining as much variance (information) as possible in the data.
+
+
+Q3:
+The covariance matrix quantifies the relationships (linear dependencies) between features.
+PCA and Covariance Matrix:
+PCA uses the eigenvectors and eigenvalues of the covariance matrix to determine the directions (principal components) and magnitudes (variance explained) of the data’s spread.
+Eigenvectors of the covariance matrix represent the directions of maximum variance (principal components).
+Eigenvalues correspond to the amount of variance explained by each principal component.
+
+
+Q4:
+Fewer Components:
+Reduces dimensionality and noise, but risks losing important information if too many components are discarded.
+More Components:
+Retains more variance but increases computational cost and potential overfitting in subsequent models.
+Choosing the Number:
+Use a cumulative variance plot to select the number of components that explain a desired threshold (e.g., 95% of total variance).
+Trade-off between complexity and information retention.
+
+
+Q5:
+PCA in Feature Selection:
+PCA transforms the features into a new set of uncorrelated features (principal components). Instead of using the original features, a subset of the principal components is selected for downstream tasks.
+Benefits:
+Removes multicollinearity among features.
+Reduces noise by focusing on the most informative components.
+Enhances computational efficiency by reducing dimensionality.
+
+
+Q6: 
+Data Visualization:
+Reducing dimensions to 2 or 3 for visualizing high-dimensional data.
+Preprocessing:
+Dimensionality reduction for faster computation in machine learning models.
+Noise Filtering:
+Removing less significant components to reduce noise in data.
+Feature Extraction:
+Transforming features into a compact, meaningful representation.
+Image Compression:
+Reducing the number of pixels while retaining key image features.
+Genomics and Bioinformatics:
+Analyzing gene expression data or identifying key genetic markers.
+
+
+Q7:
+Spread:
+The dispersion of data points in a particular direction.
+Variance:
+The numerical measure of spread, calculated as the average squared deviation from the mean.
+Relationship:
+PCA identifies directions (principal components) where the spread, and hence the variance, is maximized. Variance quantifies how much information is retained along each principal component.
+
+
+Q8: 
+PCA calculates the covariance matrix to capture the spread of data in all directions.
+It identifies the eigenvectors (directions of maximum spread) and eigenvalues (variance along these directions).
+Principal components are chosen as the eigenvectors corresponding to the largest eigenvalues, ensuring that they capture the maximum variance in the data.
+
+
+Q9: 
+PCA naturally prioritizes dimensions with higher variance since these dimensions contribute more to the overall spread of the data.
+Process:
+High-variance dimensions will dominate the first few principal components.
+Low-variance dimensions contribute minimally and are often discarded, reducing noise and redundancy.
+Scaling:
+If the variance difference is due to differing units, feature scaling (e.g., standardization) ensures all dimensions are treated equally during PCA.
